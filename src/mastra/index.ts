@@ -7,6 +7,9 @@ import { careerCrafterAgent } from './agents/careercrafter-agent';
 import { toolCallAppropriatenessScorer, completenessScorer, translationScorer } from './scorers/weather-scorer';
 
 export const mastra = new Mastra({
+  bundler: {
+    externals: ["axios"],
+  },
   workflows: { weatherWorkflow },
   agents: { careerCrafterAgent },
   scorers: { toolCallAppropriatenessScorer, completenessScorer, translationScorer },
