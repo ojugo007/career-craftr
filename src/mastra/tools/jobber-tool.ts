@@ -55,12 +55,17 @@ async function getJobs(location: string, skills: string, remote: boolean) {
     if (remote) params.append('remote', 'true');
 
     const url = `${baseUrl}/?${params.toString()}`;
-    console.log("jobtools line 52: ", url)
+
+    const apikey = process.env.FINDWORK_API_KEY
+    if(!apikey){
+        console.log(apikey)
+        throw new Error("Missing FINDWORK_API_KEY environment variable")
+    }
 
     const jobResponse = await fetch(url, {
         method: 'GET',
         headers:{
-            Authorization : `Token ${process.env.FINDWORK_APIKEY}`,
+            Authorization : apikey,
             'Content-Type' : 'application/json'
         }
     })
