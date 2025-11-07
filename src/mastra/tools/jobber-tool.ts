@@ -65,7 +65,7 @@ async function getJobs(location: string, skills: string, remote: boolean) {
     const jobResponse = await fetch(url, {
         method: 'GET',
         headers:{
-            Authorization : apikey,
+            Authorization : 'Token 895ec41fd1bf0be913f64c8ccf6292f33a08f412',
             'Content-Type' : 'application/json'
         }
     })
