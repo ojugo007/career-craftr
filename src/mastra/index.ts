@@ -3,15 +3,13 @@ import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
 import { weatherWorkflow } from './workflows/weather-workflow';
-import { careerCrafterAgent } from './agents/careercrafter-agent';
+import {weatherAgent} from './agents/weather-agent'
 import { toolCallAppropriatenessScorer, completenessScorer, translationScorer } from './scorers/weather-scorer';
+import { jobAgent } from './agents/jobber-agent';
 
 export const mastra = new Mastra({
-  bundler: {
-    externals: ["axios"],
-  },
   workflows: { weatherWorkflow },
-  agents: { careerCrafterAgent },
+  agents: {jobAgent, weatherAgent },
   scorers: { toolCallAppropriatenessScorer, completenessScorer, translationScorer },
   storage: new LibSQLStore({
     // stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db
