@@ -5,7 +5,6 @@ import { jobTool } from '../tools/jobber-tool'
 import { scorers } from '../scorers/weather-scorer';
 
 
-
 export const jobAgent = new Agent({
     name: 'Findwork Agent',
     instructions: `

@@ -34,5 +34,6 @@ export const mastra = new Mastra({
       swaggerUI: true,
     },
     apiRoutes: [a2aAgentRoute]
-  }
+  },
+  
 });
