@@ -16,6 +16,7 @@ interface JobResponse {
     }[]
 }
 
+
 export const jobTool = createTool({
     id: 'get-job',
     description: 'Search for jobs by location, skill, and remote status using the Findwork API.',
