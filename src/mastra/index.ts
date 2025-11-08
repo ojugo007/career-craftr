@@ -11,6 +11,9 @@ import { a2aAgentRoute } from './routes/a2a-route';
 export const mastra = new Mastra({
   workflows: { weatherWorkflow },
   agents: {jobAgent, weatherAgent },
+  server: {
+    apiRoutes: [a2aAgentRoute]
+  },
   scorers: { toolCallAppropriatenessScorer, completenessScorer, translationScorer },
   storage: new LibSQLStore({
     // stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db
@@ -27,13 +30,7 @@ export const mastra = new Mastra({
   observability: {
     // Enables DefaultExporter and CloudExporter for AI tracing
     default: { enabled: true }, 
-  },
-  server: {
-    build: {
-      openAPIDocs: false,
-      swaggerUI: true,
-    },
-    apiRoutes: [a2aAgentRoute]
-  },
+  }
+  
   
 });
